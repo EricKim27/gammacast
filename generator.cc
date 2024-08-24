@@ -16,7 +16,7 @@ void GammaPrimaryGen::GeneratePrimaries(G4Event *anEvent)
     G4ParticleDefinition *gamma = pTable->FindParticle("gamma");
     
     //Make the particle to emit in a cone shape.
-    G4double theta = G4UniformRand() * (10.0 * CLHEP::deg); 
+    G4double theta = G4UniformRand() * (20.0 * CLHEP::deg); 
     G4double phi = G4UniformRand() * 2 * CLHEP::pi;
     G4double z = std::cos(theta);
     G4double y = std::sin(theta) * std::cos(phi);
@@ -27,7 +27,7 @@ void GammaPrimaryGen::GeneratePrimaries(G4Event *anEvent)
 
     pGun->SetParticlePosition(pos);
     pGun->SetParticleMomentumDirection(mom);
-    pGun->SetParticleMomentum(100.*MeV);
+    pGun->SetParticleEnergy(423*keV);
     pGun->SetParticleDefinition(G4Gamma::Gamma());
 
     pGun->GeneratePrimaryVertex(anEvent);
